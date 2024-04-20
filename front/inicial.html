@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./content/css/inicial.css">
+    <script src="./script/javascript/inicial.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>ProjMeteo</title>
+</head>
+<body>
+    <div id="container">
+        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-bell"></i>
+        <form action="search">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="search" name="nome_cidade" id="nome_cidade" placeholder="Pesquise a sua cidade">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+        <div class="corpo">
+            <h3 id="cidade"><i class="fa-solid fa-location-dot"></i> Luanda, AO</h3>
+            <!--para as informações do tempo na hora-->
+            <div id="infos">
+                <div id="temp">
+                    <p id="valorTempo">
+                        32 <sup>ºc</sup>
+                    </p>
+                    <p id="max-min">
+                        max: 35 <sup>ºc</sup> / min: 24 <sup>ºc</sup>
+                    </p>
+                    <p id="clima">Nublado</p>
+                </div>
+            </div>
+            <!--o resto das informações-->
+            <div id = "outrasInfos">
+                <!--informações para as proximas horas-->
+                <div id="dia">
+                    <p class="hora">15:00</p>
+                    <img src="./content/image/iconeNublado.png" alt="Dia Nublado" id="primeiraDia">
+                    <p class="temperatura">32 <sup>ºc</sup></p>
+                </div>
+                <hr>
+                <div id="semana">
+                    <p class="diaSemana">Segunda-feira</p>
+                    <img src="./content/image/iconeNublado.png" alt="Dia Nublado" id="segundaSemana">
+                    <p class="temperatura">32 <sup>ºc</sup></p>
+
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+</body>
+</html>
