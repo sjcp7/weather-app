@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#content {
+  max-width: 50%;
+}
+
+#main-card {
+  padding: 2rem;
+}
+
+#main-card img {
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.hour-card, .day-card {
+  padding: 5rem;
+}
+
+
+
+a {
+  color: #00B7FF;
+}
