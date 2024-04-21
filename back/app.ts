@@ -7,6 +7,8 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const reflectMetadata = require('reflect-metadata');
 
+require('dotenv').config();
+
 const app = express();
 
 // view engine setup
