@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,48 +9,80 @@
     <title>ProjMeteo</title>
 </head>
 <body>
-    <div id="container">
-        <i class="fa-solid fa-user"></i>
-        <i class="fa-solid fa-bell"></i>
-        <form action="search">
-            <i class="fa-solid fa-location-dot"></i>
-            <input type="search" name="nome_cidade" id="nome_cidade" placeholder="Pesquise a sua cidade">
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-        </form>
+    <div id="botao">
+        <button type="button" id="bnt-notificacoes"><a href="notificacoes.html"><i class="fa-solid fa-bell"></i></a></button>     
+   
+        <button type="button" id="bnt-perfil"><i class="fa-solid fa-user"></i></button> 
+
+    </div>
+
+   <div id="organiza">
+        
+            <h3 id="cidade">
+                <i class="fa-solid fa-location-dot"></i>
+                 Luanda, AO 
+                 <button type="submit" id="bnt-partilha">
+
+                    <i class="fa-regular fa-share"></i></button>
+                </button>
+            </h3>
+        
+
+        
+            <form action="#search">
+                <input type="search" name="nome_cidade" id="nome_cidade" placeholder="Pesquise a sua cidade">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+        
+        
+    </div>
         <div class="corpo">
-            <h3 id="cidade"><i class="fa-solid fa-location-dot"></i> Luanda, AO</h3>
             <!--para as informações do tempo na hora-->
             <div id="infos">
                 <div id="temp">
-                    <p id="valorTempo">
-                        32 <sup>ºc</sup>
-                    </p>
-                    <p id="max-min">
-                        max: 35 <sup>ºc</sup> / min: 24 <sup>ºc</sup>
-                    </p>
-                    <p id="clima">Nublado</p>
+                    <p class="clima">Agora</p>
+                    <div id="direita">
+                        <img src="./content/image/iconeNublado.png" alt=" dia Nublado" id="tipo">
+                        <p id="valorTempo">
+                            32 <sup>ºc</sup>
+                        </p>
+                    </div>
+                    
+                    <div id="esquerda">
+                        <p id="chuva">Chuva: <span>25</span>%</p> 
+                        <p id="max">
+                            max: 35 <sup>ºc</sup>
+                        </p>     
+                           <p id = "min">min: 24 <sup>ºc</sup></p> 
+                       
+                    </div>
+                    <p class="clima">Nublado</p>
                 </div>
             </div>
             <!--o resto das informações-->
             <div id = "outrasInfos">
                 <!--informações para as proximas horas-->
                 <div id="dia">
+                    <h4>Próximas Horas</h4>
                     <p class="hora">15:00</p>
                     <img src="./content/image/iconeNublado.png" alt="Dia Nublado" id="primeiraDia">
                     <p class="temperatura">32 <sup>ºc</sup></p>
+                    <p>Nublado</p>
                 </div>
                 <hr>
+                <!--informações para os proximos dias-->
                 <div id="semana">
+                    <h4>Próximos Dias</h4>
                     <p class="diaSemana">Segunda-feira</p>
                     <img src="./content/image/iconeNublado.png" alt="Dia Nublado" id="segundaSemana">
                     <p class="temperatura">32 <sup>ºc</sup></p>
-
+                    <p>Nublado</p>
                 </div>
             </div>
             
 
         </div>
-    </div>
+
 </body>
 </html>
