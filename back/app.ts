@@ -5,11 +5,33 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const reflectMetadata = require('reflect-metadata');
+import 'reflect-metadata';
 
 require('dotenv').config();
 
+import { DataSource } from "typeorm";
+import { User } from "./entities/User";
+
 const app = express();
+
+const appDataSource = new DataSource({
+  type: "mysql",
+  host: "localhost",
+  port: 3306,
+  username: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DB,
+  entities: [User],
+  synchronize: true,
+  logging: false
+});
+
+// connect to the database
+appDataSource.initialize()
+  .then(() => {
+
+  })
+  .catch((err) => console.log(err));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
