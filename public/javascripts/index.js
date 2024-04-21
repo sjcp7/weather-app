@@ -5,6 +5,7 @@ async function searchForecast(e) {
     if (cityname == "") return;
     const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=4278fa18d57947ee9f7213303242004&q=${cityname}&days=8&aqi=no&alerts=yes&lang=pt`;
     const response = await fetch(apiUrl);
+    document.getElementById('cur-location').value = cityname;
     const data = response.json().then(d => fillWithData(d));
 }
 
@@ -85,8 +86,6 @@ function renderDayCard(data) {
 
 }
 
-const searchBtn = document.getElementById('search');
-search.addEventListener('click', searchForecast);
 
 function getCurrentLocation() {
     if (navigator.geolocation) {
@@ -98,10 +97,35 @@ function getCurrentLocation() {
 
 async function fetchFromPosition(position) {
     coords = position.coords.latitude + "," + position.coords.longitude;
+    document.getElementById('cur-location').value = coords;
     const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=4278fa18d57947ee9f7213303242004&q=${coords}&days=8&aqi=no&alerts=yes&lang=pt`;
     const response = await fetch(apiUrl);
     const data = await response.json();
     fillWithData(data);
 }
 
-getCurrentLocation();
+async function main() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('q')) {
+        const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=4278fa18d57947ee9f7213303242004&q=${urlParams.get('q')}&days=8&aqi=no&alerts=yes&lang=pt`;
+        const response = await fetch(apiUrl);
+        const data = response.json().then(d => fillWithData(d));
+    }
+    else {
+        getCurrentLocation();
+    }
+}
+
+function generateShareLink(e) {
+    e.preventDefault();
+    const q = document.getElementById('cur-location').value;
+    const url = new URL(window.location.origin + `/?q=${q}`);
+    document.querySelector('#share-modal .modal-body').innerText = `Seu link para partilha: ${url}`;
+}
+
+const searchBtn = document.getElementById('search');
+searchBtn.addEventListener('click', searchForecast);
+
+const shareBtn = document.getElementById('share');
+shareBtn.addEventListener('click', generateShareLink);
+main();
